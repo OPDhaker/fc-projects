@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+    body {
+      font-family: "Inter", sans-serif;
+      font-optical-sizing: auto;
+      font-style: normal;
+    }
+  </style>
+  <script src="./script.js"></script>
+  <title>WeatherApp</title>
+</head>
+<body class="bg-slate-900 text-slate-200">
+  <div class="max-w-2xl mx-auto my-10 px-4">
+    <h1 class="text-3xl font-semibold tracking-tighter mb-8">WeatherApp</h1>
+    <div class="">
+      <form class="grid grid-cols-4 gap-4" id="searchCity">
+        <input type="text" name="city-name" id="cityName" placeholder="Enter City Name" class="col-span-3 rounded-lg text-sm bg-slate-800 border border-slate-700 px-4 py-2 focus:outline-none focus:ring-2 focus:ring-slate-700">
+        <button
+          type="submit"
+          class="bg-slate-200 text-slate-900 rounded-lg font-medium hover:bg-slate-200/10 hover:outline-slate-200 hover:outline-2 hover:text-slate-200 transition"
+        >
+          Search
+        </button>
+      </form>
+    </div>
+    <div id="weatherCardContainer" class="w-full p-6 my-10"></div>
+  </div>
+
+  <script>
+  </script>
+</body>
+</html>
