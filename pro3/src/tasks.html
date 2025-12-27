@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <style>
+    body {
+      font-family: "Inter", sans-serif;
+      font-optical-sizing: auto;
+      font-style: normal;
+    }
+  </style>
+  <style type="text/tailwindcss">
+
+
+    h2 {
+      @apply text-4xl font-semibold tracking-tighter capitalize
+    }
+  </style>
+  <title>Tasks | To Do App</title>
+</head>
+<body class="bg-slate-900 text-slate-200">
+  <!-- Navbar -->
+  <div class="px-4 lg:px-20 py-4 flex items-center justify-between border-b border-slate-200 bg-slate-900/20 backdrop-blur-sm">
+    <a href="./" class="w-fit text-xl font-semibold tracking-tight">ToDoApp</a>
+    <div class="">
+      <ul class="flex items-center gap-4 md:gap-6 text-sm font-medium">
+        <li><a href="./tasks.html" class="text-slate-400 transition-colors hover:text-slate-200">Tasks</a></li>
+        <li><a href="./create-a-task.html" class="bg-slate-200 text-slate-900 rounded-md px-3 py-2 hover:outline-slate-200 outline transition hover:outline-2  hover:bg-slate-200/20 hover:text-slate-200 cursor-pointer">Create Task</a></li>
+      </ul>
+    </div>
+  </div>
+  <!-- Content -->
+  <div class="max-w-lg px-6 lg:max-w-6xl mx-auto my-10">
+    <div class="flex items-center justify-between">
+      <h2 class="mb-8">Your Tasks</h2>
+      <button id="deleteBtn" class="px-3 py-1 bg-red-600 font-medium rounded-md transition hover:bg-red-700">Delete</button>
+    </div>
+
+    <div id="tasksContainer" class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3"></div>
+
+    <div id="emptyState" class="space-y-4 hidden">
+      <p class="text-slate-400">No tasks yet. Create one with the button below!</p>
+      <a href="./create-a-task.html" class="bg-slate-200 text-slate-900 rounded-md px-3 py-2 hover:outline-slate-200 outline transition hover:outline-2  hover:bg-slate-200/20 hover:text-slate-200 cursor-pointer">Create Task</a>
+    </div>
+  </div>
+
+  <script>
+    const container = document.getElementById("tasksContainer");
+    const emptyState = document.getElementById("emptyState");
+    const deleteBtn = document.getElementById("deleteBtn");
+
+    deleteBtn.addEventListener("click", (e) => {
+      alert("This action will delete all the created tasks.");
+      localStorage.clear();
+      location.reload();
+    })
+
+    const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+
+    if (tasks.length === 0) {
+      emptyState.classList.remove("hidden");
+    } else {
+      tasks.forEach(task => {
+        const card = document.createElement("div");
+        card.className =
+          "bg-slate-800 border-[0.3px] border-slate-600 rounded-md p-6 flex flex-col gap-4";
+
+        card.innerHTML = `
+          <h3 class="text-lg font-semibold tracking-tight capitalize">${task.title}</h3>
+          <p class="text-sm text-slate-400 line-clamp-2">${task.description || "No description"}</p>
+          <span class="text-xs text-slate-500 mt-10">
+            ${new Date(task.createdAt).toLocaleString()}
+          </span>
+        `;
+
+        container.appendChild(card);
+      });
+    }
+  </script>
+
+</body>
+</html>
