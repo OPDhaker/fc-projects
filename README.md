@@ -4,13 +4,13 @@ A collection of web development projects showcasing frontend skills, DOM manipul
 
 ## 📋 Table of Contents
 
-- [Projects Overview](#projects-overview)
-- [Technologies Used](#technologies-used)
-- [Project Structure](#project-structure)
-- [Getting Started](#getting-started)
-- [Branch Information](#branch-information)
-- [Features Summary](#features-summary)
-- [Learning Outcomes](#learning-outcomes)
+- [Projects Overview](#-projects-overview)
+- [Technologies Used](#-technologies-used)
+- [Project Structure](#-project-structure)
+- [Getting Started](#-getting-started)
+- [Branch Information](#-branch-information)
+- [Features Summary](#-features-summary)
+- [Learning Outcomes](#-learning-outcomes)
 
 ## 🎯 Projects Overview
 
@@ -260,3 +260,4 @@ This project is open source and available for educational purposes.
 ---
 
 **Last Updated:** December 2024
+
