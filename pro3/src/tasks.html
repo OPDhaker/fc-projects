@@ -36,7 +36,10 @@
   </div>
   <!-- Content -->
   <div class="max-w-lg px-6 lg:max-w-6xl mx-auto my-10">
-    <h2 class="mb-8">Your Tasks</h2>
+    <div class="flex items-center justify-between">
+      <h2 class="mb-8">Your Tasks</h2>
+      <button id="deleteBtn" class="px-3 py-1 bg-red-600 font-medium rounded-md transition hover:bg-red-700">Delete</button>
+    </div>
 
     <div id="tasksContainer" class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3"></div>
 
@@ -49,6 +52,13 @@
   <script>
     const container = document.getElementById("tasksContainer");
     const emptyState = document.getElementById("emptyState");
+    const deleteBtn = document.getElementById("deleteBtn");
+
+    deleteBtn.addEventListener("click", (e) => {
+      alert("This action will delete all the created tasks.");
+      localStorage.clear();
+      location.reload();
+    })
 
     const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
 
